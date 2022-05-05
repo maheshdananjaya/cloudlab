@@ -60,7 +60,18 @@ git checkout dam
 #	./build.sh -s
 #fi
 #./build.sh -s
+git clone https://github.com/maheshdananjaya/cloudlab.git
+cd cloudlab
+git checkout master
 
+#bluefield 2
+#sudo su
+sudo systemctl restart systemd-networkd
+sudo netplan apply
+sudo echo 1 | tee /proc/sys/net/ipv4/ip_forward
+sudo iptables -t nat -A POSTROUTING -o eno1 -j MASQUERADE
+sudo iptables -A FORWARD -o eno1 -j ACCEPT
+sudo iptables -A FORWARD -m state --state ESTABLISHED,RELATED -i eno1 -j ACCEPT
 
 sleep 10 # if we try to init nic immediately it typically fails
 

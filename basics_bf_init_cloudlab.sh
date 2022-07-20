@@ -5,10 +5,10 @@
     # Node w/ first IP (i.e., "manager") must run script before the rest of the nodes
     # (instantiates a memcached to setup RDMA connections)
 ORDERED_HOST_NAMES=(
-  "clgpu018.clemson.cloudlab.us"
-  "clgpu019.clemson.cloudlab.us"
-  "clgpu012.clemson.cloudlab.us"
-  "clgpu022.clemson.cloudlab.us"
+  "clgpu013.clemson.cloudlab.us"
+  "clgpu021.clemson.cloudlab.us"
+  "clgpu010.clemson.cloudlab.us"
+  "clgpu016.clemson.cloudlab.us"
 )
 
 #clgpu019.clemson.cloudlab.us
@@ -27,7 +27,7 @@ CLOUDLAB_SSHKEY_FILE="${HOME}/.ssh/celeste_cloudlab"
 
 SSH_PREFIX="n"
 CONFIG_NAME="cloudlab_ssh_config"
-SCRIPT_TO_COPY_N_RUN="init-preimaged.sh"
+SCRIPT_TO_COPY_N_RUN="basics_init-preimaged.sh"
 
 # Create file
 echo "# cloudlab config" > ${CONFIG_NAME}
@@ -73,5 +73,5 @@ parallel scp ./${SCRIPT_TO_COPY_N_RUN} ${SSH_PREFIX}{}:~/${SCRIPT_TO_COPY_N_RUN}
 
 # run script
 echo "Running ${SCRIPT_TO_COPY_N_RUN} in cloudlab nodes: ${MACHINE_LIST_IDS}"
-parallel ssh ${SSH_PREFIX}{} './'"${SCRIPT_TO_COPY_N_RUN}"'' ::: ${MACHINE_LIST_IDS}
+#parallel ssh ${SSH_PREFIX}{} './'"${SCRIPT_TO_COPY_N_RUN}"'' ::: ${MACHINE_LIST_IDS}
 echo "Init done!"

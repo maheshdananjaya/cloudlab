@@ -5,10 +5,11 @@
     # Node w/ first IP (i.e., "manager") must run script before the rest of the nodes
     # (instantiates a memcached to setup RDMA connections)
 ORDERED_HOST_NAMES=(
-  "clgpu018.clemson.cloudlab.us"
-  "clgpu019.clemson.cloudlab.us"
-  "clgpu012.clemson.cloudlab.us"
-  "clgpu022.clemson.cloudlab.us"
+  "clnode302.clemson.cloudlab.us"
+  "clnode289.clemson.cloudlab.us"
+  "clnode308.clemson.cloudlab.us"
+  "clnode310.clemson.cloudlab.us"
+  "clnode304.clemson.cloudlab.us"
 )
 
 #clgpu019.clemson.cloudlab.us
@@ -27,7 +28,7 @@ CLOUDLAB_SSHKEY_FILE="${HOME}/.ssh/celeste_cloudlab"
 
 SSH_PREFIX="n"
 CONFIG_NAME="cloudlab_ssh_config"
-SCRIPT_TO_COPY_N_RUN="init-preimaged.sh"
+SCRIPT_TO_COPY_N_RUN="cx5_init-preimaged.sh"
 
 # Create file
 echo "# cloudlab config" > ${CONFIG_NAME}
